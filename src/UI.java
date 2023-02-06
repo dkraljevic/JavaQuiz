@@ -45,7 +45,7 @@ public class UI {
                     break;
                 case "2":
                     if(askedQuestionsLog.size() == 10){
-                        System.out.println("Last player score was --- " + this.score);
+                        System.out.println("Last player score was --- " + this.score + "\nPlayer tag: " + player.getTag());
                         break;
                     }else{
                         System.out.println("No previous games recorded");

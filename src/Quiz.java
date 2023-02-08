@@ -4,10 +4,10 @@ import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Quiz {
-    private ArrayList<Questions> questions = new ArrayList<>();
+    private ArrayList<Questions> questions;
 
     public Quiz() {
-
+        this.questions = new ArrayList<>();
     }
 
     public void addQuestions() {

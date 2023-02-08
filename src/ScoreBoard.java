@@ -9,9 +9,10 @@ import java.util.Scanner;
 //This class is used for storing and manipulating score
 //Scores are written into formatted file up to 20 scores max
 public class ScoreBoard {
-    private ArrayList<String> scoreContent = new ArrayList<>(20);
+    private ArrayList<String> scoreContent;
 
     public ScoreBoard() {
+        this.scoreContent = new ArrayList<>(20);
     }
 
     public void createScoresFile() {
@@ -99,34 +100,33 @@ public class ScoreBoard {
         Collections.sort(this.scoreContent);
 
         //format scores for output
-        int arrSize = scoreContent.size()*2;
+        int arrSize = scoreContent.size() * 2;
         String[] formattedScores = new String[arrSize];
 
-        for (int i = 0, j = 0; i < arrSize-1 && j < this.scoreContent.size(); i+=2, j++) {
+        for (int i = 0, j = 0; i < arrSize - 1 && j < this.scoreContent.size(); i += 2, j++) {
             String[] tmp = this.scoreContent.get(j).split(",");
             formattedScores[i] = tmp[0];
-            formattedScores[i+1] = tmp[1];
+            formattedScores[i + 1] = tmp[1];
         }
-
 
 
         System.out.printf("%25s" + "\n", "High-scores:");
         System.out.printf("%3s" + "%11s" + "%8s" + "\n", "|Position|", "|Score|", "|Tag|");
         int k = 1;
-        for (int i = formattedScores.length-1; i > 0; i-=2) {
-            if(k<10){
+        for (int i = formattedScores.length - 1; i > 0; i -= 2) {
+            if (k < 10) {
                 if (k == 1) {
-                    System.out.printf("|%3s|" + "|%6s|" + "|%6s|"+ "\n", k + "st ------ ",formattedScores[i-1],formattedScores[i]);
+                    System.out.printf("|%3s|" + "|%6s|" + "|%6s|" + "\n", k + "st ------ ", formattedScores[i - 1], formattedScores[i]);
                 } else if (k == 2) {
-                    System.out.printf("|%3s|" + "|%6s|" + "|%6s|"+ "\n", k + "nd ------ ",formattedScores[i-1],formattedScores[i]);
+                    System.out.printf("|%3s|" + "|%6s|" + "|%6s|" + "\n", k + "nd ------ ", formattedScores[i - 1], formattedScores[i]);
                 } else if (k == 3) {
-                    System.out.printf("|%3s|" + "|%6s|" + "|%6s|"+ "\n", k + "rd ------ ",formattedScores[i-1],formattedScores[i]);
+                    System.out.printf("|%3s|" + "|%6s|" + "|%6s|" + "\n", k + "rd ------ ", formattedScores[i - 1], formattedScores[i]);
                 } else {
-                    System.out.printf("|%3s|" + "|%6s|" + "|%6s|"+ "\n", k + "th ------ ",formattedScores[i-1],formattedScores[i]);
+                    System.out.printf("|%3s|" + "|%6s|" + "|%6s|" + "\n", k + "th ------ ", formattedScores[i - 1], formattedScores[i]);
                 }
             } else {
-            System.out.printf("|%2s|" + "|%6s|" + "|%6s|"+ "\n", k + "th ----- ",formattedScores[i-1],formattedScores[i]);
-        }
+                System.out.printf("|%2s|" + "|%6s|" + "|%6s|" + "\n", k + "th ----- ", formattedScores[i - 1], formattedScores[i]);
+            }
             k++;
         }
     }

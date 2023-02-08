@@ -7,7 +7,7 @@ public class Main {
         Quiz quiz = new Quiz();
         UI ui = new UI(scanner, quiz);
 
-        ui.start(scanner);
+        ui.start();
         scanner.close();
     }
 }

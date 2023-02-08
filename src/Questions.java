@@ -4,15 +4,19 @@ import java.util.ArrayList;
 public class Questions {
     private String question;
     private String correctAnswer;
-    private ArrayList<String> answerChoices = new ArrayList<>(4);
-    private ArrayList<String> answerChoicesRandom = new ArrayList<>(4);
+    private ArrayList<String> answerChoices;
+    private ArrayList<String> answerChoicesRandom;
 
 
     public Questions() {
+        this.answerChoices = new ArrayList<>(4);
+        this.answerChoicesRandom = new ArrayList<>(4);
     }
 
     public Questions(String question) {
         this.question = question;
+        this.answerChoices = new ArrayList<>(4);
+        this.answerChoicesRandom = new ArrayList<>(4);
     }
 
     public void addRandomAnswerChoices(int n, String answer) {
@@ -41,10 +45,5 @@ public class Questions {
 
     public String getAnswerChoices(int n) {
         return this.answerChoices.get(n);
-    }
-
-    //method that returns string answer based on number from user input
-    public String checkAnswer(int n) {
-        return answerChoices.get(n);
     }
 }

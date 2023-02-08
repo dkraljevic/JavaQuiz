@@ -4,19 +4,22 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class UI {
     private Scanner scanner;
-    private ArrayList<Integer> askedQuestionsLog = new ArrayList<>();
+    private ArrayList<Integer> askedQuestionsLog;
     private Quiz quiz;
     private int score = 0;
-    private Player player = new Player();
-    private ScoreBoard scoreBoard = new ScoreBoard();
+    private Player player;
+    private ScoreBoard scoreBoard;
 
 
     public UI(Scanner scanner, Quiz quiz) {
         this.scanner = scanner;
         this.quiz = quiz;
+        this.askedQuestionsLog = new ArrayList<>(10);
+        this.player = new Player();
+        this.scoreBoard = new ScoreBoard();
     }
 
-    public void start(Scanner scanner) {
+    public void start() {
         boolean condition = true;
         String menuChoice = "";
 
